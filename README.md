@@ -12,15 +12,14 @@
 | birthday             | date     | null:false              |
 
 Association
-has_many:products dependent::destroy
-belongs_to:destination dependent::destroy
-belongs_to:card dependent::destroy
+has_many:products 
+belongs_to:destinations
+
 
 ###destinations
 
 | Colum            | Type      | options                     |
 |------------------|-----------|-----------------------------|
-| user_id          | integer   | null:false,foreign_key:true |
 | post_code        | string    | null:false                  |
 | prefecture_id    | integer   | null:false                  |
 | city             | string    | null:false                  |
@@ -29,26 +28,27 @@ belongs_to:card dependent::destroy
 | phone_number     | string    | null:false                  |
 
 Association
-belongs_to:user
+belongs_to:products
+
 
 ###products
 
 | Colum            | Type      | options                     |
 |------------------|-----------|-----------------------------|
-| name             | string    | null:false                  |
-| price            | integer   | null:false                  |
-| description      | text      | null:false                  |
-| condition        | string    | null:false                  |
+| name_id          | integer   | null:false,foreign_key:ture |
+| price_id         | integer   | null:false,foreign_key:ture |
+| description_id   | integer   | null:false,foreign_key:ture |
+| condition_id     | integer   | null:false,foreign_key:ture |
 | sipping_postage  | string    | null:false                  |
 | sipping_days     | string    | null:false                  | 
 | category_id      | integer   | null:false,foreign_key:ture |
 | sipping_id       | integer   | null:false,foreign_key:ture |
-| user_id          | references| 
+| user_id          | references| null:false,foreign_key:ture |
 
 Association
 belongs_to:user dependent::destroy
 belongs_to:category dependent::destroy
-has_many:images dependent::destroy
+
 
 
 ###purchases
@@ -57,3 +57,7 @@ has_many:images dependent::destroy
 |--------------------|----------|-----------------------------|
 | user_id            | integer  | null:false,foreign_key:true |
 | product_id         | integer  | null:false,foreign_key:true |
+
+Assocoation
+belongs_to:user
+belomgs_to:products
