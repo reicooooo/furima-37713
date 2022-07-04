@@ -13,7 +13,7 @@
 
 Association
 has_many:products 
-belongs_to:purchase
+has_many:purchase
 
 
 
@@ -23,23 +23,23 @@ belongs_to:purchase
 |------------------|-----------|-----------------------------|
 | post_code        | string    | null:false                  |
 | prefecture_id    | integer   | null:false                  |
-| city             | string    | null:false                  |
-| address          | string    | null:false                  |
+| city             | string    | null:false,foreign_key: true|
+| address          | string    | null:false,foreign_key: true|
 | building_name    | string    |                             |
-| phone_number     | string    | null:false                  |
+| phone_number     | string    | null:false,foreign_key: true|
 
 Association
-has_one:purchase
+belongs_to:purchase
 
 
 ###products
 
 | Colum            | Type      | options                     |
 |------------------|-----------|-----------------------------|
-| name_id          | integer   | null:false,foreign_key:ture |
-| price_id         | integer   | null:false,foreign_key:ture |
-| description_id   | integer   | null:false,foreign_key:ture |
-| condition_id     | integer   | null:false,foreign_key:ture |
+| name             | string    | null:false                  |
+| price            | integer   | null:false                  |
+| description      | string    | null:false                  |
+| condition        | string    | null:false                  |
 | sipping_postage  | string    | null:false                  |
 | sipping_days     | string    | null:false                  | 
 | category_id      | integer   | null:false,foreign_key:ture |
@@ -55,9 +55,10 @@ has_one:purchase
 
 | Colum              | Type     | options                     |
 |--------------------|----------|-----------------------------|
-| user_id            | integer  | null:false,foreign_key:true |
-| product_id         | integer  | null:false,foreign_key:true |
+| user               | integer  | null:false,foreign_key:true |
+| product            | integer  | null:false,foreign_key:true |
 
 Assocoation
 belongs_to:user
 belongs_to:product
+belongs_to:desinations
