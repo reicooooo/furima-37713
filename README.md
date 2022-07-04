@@ -13,7 +13,8 @@
 
 Association
 has_many:products 
-belongs_to:destinations
+belongs_to:purchase
+
 
 
 ###destinations
@@ -28,7 +29,7 @@ belongs_to:destinations
 | phone_number     | string    | null:false                  |
 
 Association
-belongs_to:products
+has_one:purchase
 
 
 ###products
@@ -46,9 +47,8 @@ belongs_to:products
 | user_id          | references| null:false,foreign_key:ture |
 
 Association
-belongs_to:user dependent::destroy
-belongs_to:category dependent::destroy
-
+belongs_to:user 
+has_one:purchase
 
 
 ###purchases
@@ -60,4 +60,4 @@ belongs_to:category dependent::destroy
 
 Assocoation
 belongs_to:user
-belomgs_to:products
+belongs_to:product
