@@ -13,7 +13,7 @@
 
 Association
 has_many:products 
-has_many:purchase
+has_many:purchases
 
 
 
@@ -23,10 +23,11 @@ has_many:purchase
 |------------------|-----------|-----------------------------|
 | post_code        | string    | null:false                  |
 | prefecture_id    | integer   | null:false                  |
-| city             | string    | null:false,foreign_key: true|
-| address          | string    | null:false,foreign_key: true|
+| city             | string    | null:false                  |
+| address          | string    | null:false                  |
 | building_name    | string    |                             |
-| phone_number     | string    | null:false,foreign_key: true|
+| phone_number     | string    | null:false                  |
+| purchase_id      | integer   | null:false,foreign_key: true|
 
 Association
 belongs_to:purchase
@@ -34,17 +35,17 @@ belongs_to:purchase
 
 ###products
 
-| Colum            | Type      | options                     |
-|------------------|-----------|-----------------------------|
-| name             | string    | null:false                  |
-| price            | integer   | null:false                  |
-| description      | string    | null:false                  |
-| condition        | string    | null:false                  |
-| sipping_postage  | string    | null:false                  |
-| sipping_days     | string    | null:false                  | 
-| category_id      | integer   | null:false,foreign_key:ture |
-| sipping_id       | integer   | null:false,foreign_key:ture |
-| user_id          | references| null:false,foreign_key:ture |
+| Colum             | Type      | options                     |
+|-------------------|-----------|-----------------------------|
+| name              | string    | null:false                  |
+| price             | integer   | null:false                  |
+| description       | text      | null:false                  |
+| condition_id      | integer   | null:false                  |
+| sipping_postage_id| integer   | null:false                  |
+| sipping_day_id    | integer   | null:false                  | 
+| category_id       | integer   | null:false                  |
+| sipping_id        | integer   | null:false                  |
+| user              | references| null:false,foreign_key:ture |
 
 Association
 belongs_to:user 
@@ -61,4 +62,4 @@ has_one:purchase
 Assocoation
 belongs_to:user
 belongs_to:product
-belongs_to:desinations
+belongs_to:desination
