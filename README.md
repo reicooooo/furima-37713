@@ -27,7 +27,7 @@ has_many:purchases
 | address          | string    | null:false                  |
 | building_name    | string    |                             |
 | phone_number     | string    | null:false                  |
-| purchase_id      | references| null:false,foreign_key: true|
+| purchase         | references| null:false,foreign_key: true|
 
 Association
 belongs_to:purchase
@@ -60,6 +60,6 @@ has_one:purchase
 | product            | integer  | null:false,foreign_key:true |
 
 Assocoation
-belongs_to:user
-belongs_to:product
-belongs_to:desination
+has_many:user
+has_one:product
+has_one:desination
