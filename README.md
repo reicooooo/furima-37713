@@ -60,6 +60,6 @@ has_one:purchase
 | product            | integer  | null:false,foreign_key:true |
 
 Assocoation
-has_many:user
-has_one:product
-has_one:desination
+has_many:users
+belongs_to:product
+has_one:destination
