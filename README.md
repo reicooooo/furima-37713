@@ -21,7 +21,8 @@ has_many:purchases
 
 | Colum            | Type      | options                     |
 |------------------|-----------|-----------------------------|
-| genre_id         | integer   | null:false                  |
+| post_code        | integer   | null:false                  |
+| sipping_id        | integer   | null:false                  |
 | city             | string    | null:false                  |
 | address          | string    | null:false                  |
 | building_name    | string    |                             |
