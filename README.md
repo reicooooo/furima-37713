@@ -1,24 +1,65 @@
-# README
+###usersテーブル
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+| Colum                | Type     | options                 |
+|--------------------- |----------|-------------------------|
+| nickname             | string   | null:false              |
+| email                | string   | null:false,unique: true |
+| encrypted_password   | string   | null:false              |
+| family_name          | string   | null:false              |
+| first_name           | string   | null:false              |
+| family_name_kana     | string   | null:false              |
+| first_name_kana      | string   | null:false              |
+| birthday             | date     | null:false              |
 
-Things you may want to cover:
+Association
+has_many:products 
+has_many:purchases
 
-* Ruby version
 
-* System dependencies
 
-* Configuration
+###destinations
 
-* Database creation
+| Colum            | Type      | options                     |
+|------------------|-----------|-----------------------------|
+| post_code        | integer   | null:false                  |
+| sipping_id        | integer   | null:false                  |
+| city             | string    | null:false                  |
+| address          | string    | null:false                  |
+| building_name    | string    |                             |
+| phone_number     | string    | null:false                  |
+| purchase         | references| null:false,foreign_key: true|
 
-* Database initialization
+Association
+belongs_to:purchase
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
+###products
 
-* Deployment instructions
+| Colum             | Type      | options                     |
+|-------------------|-----------|-----------------------------|
+| name              | string    | null:false                  |
+| price             | integer   | null:false                  |
+| description       | text      | null:false                  |
+| condition_id      | integer   | null:false                  |
+| sipping_postage_id| integer   | null:false                  |
+| sipping_day_id    | integer   | null:false                  | 
+| category_id       | integer   | null:false                  |
+| sipping_id        | integer   | null:false                  |
+| user              | references| null:false,foreign_key:ture |
 
-* ...
+Association
+belongs_to:user 
+has_one:purchase
+
+
+###purchases
+
+| Colum              | Type       | options                     |
+|--------------------|------------|-----------------------------|
+| user               | references | null:false,foreign_key:true |
+| product            | references | null:false,foreign_key:true |
+
+Assocoation
+belongs_to:user
+belongs_to:product
+has_one:destination
