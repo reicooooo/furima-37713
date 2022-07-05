@@ -21,8 +21,7 @@ has_many:purchases
 
 | Colum            | Type      | options                     |
 |------------------|-----------|-----------------------------|
-| post_code        | string    | null:false                  |
-| prefecture_id    | integer   | null:false                  |
+| genre_id         | integer   | null:false                  |
 | city             | string    | null:false                  |
 | address          | string    | null:false                  |
 | building_name    | string    |                             |
@@ -54,12 +53,12 @@ has_one:purchase
 
 ###purchases
 
-| Colum              | Type     | options                     |
-|--------------------|----------|-----------------------------|
-| user               | integer  | null:false,foreign_key:true |
-| product            | integer  | null:false,foreign_key:true |
+| Colum              | Type       | options                     |
+|--------------------|------------|-----------------------------|
+| user               | references | null:false,foreign_key:true |
+| product            | references | null:false,foreign_key:true |
 
 Assocoation
-has_many:users
+belongs_to:user
 belongs_to:product
 has_one:destination
