@@ -18,7 +18,7 @@ class User < ApplicationRecord
 
          validates :family_name, presence: true, format: {with: /\A[ぁ-んァ-ヶ一-龥々ー]+\z/, message: "Full=width characters"}
          validates :first_name, presence: true, format: {with: /\A[ぁ-んァ-ヶ一-龥々ー]+\z/, message: "Full=width characters"}
-         validates :family_name_kana, presence: true, format: {with: /\A[ァ-ヶー－]+\z/, message: "Family_name_kana Full-width katakana characters"}
-         validates :first_name_kana, presence: true, format: {with: /\A[ァ-ヶー－]+\z/, message: "First_name_kana Full-width katakana characters"}
+         validates :family_name_kana, presence: true, format: {with: /\A[ァ-ヶー－]+\z/, message: "Full-width katakana characters"}
+         validates :first_name_kana, presence: true, format: {with: /\A[ァ-ヶー－]+\z/, message: "Full-width katakana characters"}
          validates :birthday, presence: true
 end
