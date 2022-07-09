@@ -1,4 +1,4 @@
-class Sipping < ActiveHash::Base
+class Shipping < ActiveHash::Base
   self.data = [
     { id: 1, name: '---' },
     { id: 2, name: '北海道' },
