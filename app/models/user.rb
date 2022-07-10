@@ -6,7 +6,7 @@ class User < ApplicationRecord
 
 
 
-         #has_many:products 
+         has_many:products 
          #has_many:purchases
 
          validates :nickname, presence: true
