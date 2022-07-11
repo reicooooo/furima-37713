@@ -5,8 +5,8 @@ class ProductsController < ApplicationController
 
 
   def index
-    #@products = Product.includes(:user)
-    #@products = Product.order("created_at DESC")
+    @products = Product.all
+    @products = Product.order("created_at DESC")
   end
 
   def new
@@ -22,9 +22,9 @@ class ProductsController < ApplicationController
     end
   end
 
-  #def show
-  #  @product = Product.find(params[:id])
-  #end
+  def show
+   @product = Product.find(params[:id])
+  end
 
   def edit
   end
