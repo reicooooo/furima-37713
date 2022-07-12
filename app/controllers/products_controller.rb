@@ -29,7 +29,6 @@ class ProductsController < ApplicationController
   end
 
   def edit
-    @product = Product.find(params[:id])
     
   end
 
@@ -49,7 +48,7 @@ class ProductsController < ApplicationController
   end
 
   def set_product
-    @product = Product.find_by(params[:id])
+    @product = Product.find(params[:id])
   end
 
 
