@@ -1,4 +1,4 @@
-class PurchaseDestination
+class PurchasesDestinations
   include ActiveModel::Model
   attr_accessor :post_code,:shipping_id,:city,:address,:building_name,:phone_number,:purchase_id,:user_id,:product_id, :price
 
@@ -7,11 +7,10 @@ class PurchaseDestination
     validates :price, numericality: {only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 1000000, message: 'is invalid'}
     validates :user_id
     validates :post_code, format: {with: /\A[0-9]{3}-[0-9]{4}\z/, message: "is invalid. Include hyphen(-)"}
-    validates :phone_number, format: {with: /\d{10,11}/, length: {maximum: 11 }
+    validates :phone_number, format: {with: /\d{10,11}/}
+    validates :shipping_id, numericality: {other_than: 0, message: "can't be blank"}
   end
-  validates :address, numericality: {other_than: 0, message: "can't be blank"}
-end
-  
+
   def save
     # 各テーブルにデータを保存する処理を書く
     def save
