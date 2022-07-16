@@ -1,7 +1,7 @@
 class PurchasesController < ApplicationController
   before_action :set_product, only: [:index, :create,]
   before_action :authenticate_user!
-  before_action :contributor_confirmation, except: [:show, ]
+  before_action :contributor_confirmation
 
   def index
     @purchases_destinations = PurchasesDestinations.new
@@ -30,11 +30,11 @@ class PurchasesController < ApplicationController
 
   def pay_product
    
-    Payjp.api_key = "sk_test_a0b35ebd828f6fdaafe78286"  # 自身のPAY.JPテスト秘密鍵を記述しましょう
+    Payjp.api_key = ENV["PAYJP_SECRET_KEY"] 
     Payjp::Charge.create(
-      amount: @product.price,  # 商品の値段
-      card: purchases_destinations_params[:token],    # カードトークン
-      currency: 'jpy'                 # 通貨の種類（日本円）
+      amount: @product.price,  
+      card: purchases_destinations_params[:token],    
+      currency: 'jpy'                 
     )
   end
 

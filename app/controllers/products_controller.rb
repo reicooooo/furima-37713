@@ -29,9 +29,7 @@ class ProductsController < ApplicationController
   end
 
   def edit
-    if @product.user_id == current_user.id || @product.purchase != nil
-      redirect_to root_path 
-    end
+    
     
   end
 
@@ -64,7 +62,10 @@ class ProductsController < ApplicationController
 
 
   def contributor_confirmation
-    redirect_to root_path unless current_user == @product.user
+    if @product.user_id != current_user.id || @product.purchase != nil
+      redirect_to root_path 
+    end
+    
   end
   
 

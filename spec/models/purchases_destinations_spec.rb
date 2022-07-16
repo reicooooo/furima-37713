@@ -71,7 +71,7 @@ RSpec.describe PurchasesDestinations, type: :model do
             expect(@purchases_destinations.errors.full_messages).to include("Phone number is invalid")
           end
 
-          it " 電話番号は、11桁以上だと保存できない" do
+          it " 電話番号は、12桁以上だと保存できない" do
             @purchases_destinations.phone_number = '1234567890000' 
             @purchases_destinations.valid?
             expect(@purchases_destinations.errors.full_messages).to include("Phone number is invalid")
